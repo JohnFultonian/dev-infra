@@ -1,0 +1,6 @@
+[Unit]
+Description=Check SSL certs every minute
+
+[Timer]
+OnActiveSec=60
+OnUnitActiveSec=60

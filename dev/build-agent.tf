@@ -6,7 +6,7 @@ variable "agent_token" {}
 resource "digitalocean_droplet" "build-agent" {
   image = "coreos-stable"
   name = "build-agent"
-  region = "nyc2"
+  region = "sgp1"
   size = "1gb"
   private_networking = true
   ssh_keys = [
