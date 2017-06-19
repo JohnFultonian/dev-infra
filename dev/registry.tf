@@ -46,11 +46,6 @@ EOF
   }
 
   provisioner "file" {
-    source = "scripts/registry.sh"
-    destination = "/home/core/registry.sh"
-  }
-
-  provisioner "file" {
     source = "services/certbot.service"
     destination = "/tmp/certbot.service"
   }
@@ -67,8 +62,7 @@ EOF
       "chmod +x certbot.sh",
       "sed -i \"s/'//g\" gcs-key.json",
       "sudo mv /tmp/certbot.{service,timer} /etc/systemd/system/",
-      "sudo systemctl start certbot.timer",
-      "./registry.sh ${var.registry_subdomain}.${var.domain}",
+      "sudo systemctl start certbot.timer"
     ]
   }
 
