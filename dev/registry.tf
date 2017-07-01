@@ -61,6 +61,7 @@ EOF
       "chmod +x registry.sh",
       "chmod +x certbot.sh",
       "sed -i \"s/'//g\" gcs-key.json",
+      "sed -i \"s/'//g\" htpasswd",
       "sudo mv /tmp/certbot.{service,timer} /etc/systemd/system/",
       "sudo systemctl start certbot.timer"
     ]

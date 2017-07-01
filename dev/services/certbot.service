@@ -2,6 +2,8 @@
 Description=Installs SSL certs and keeps them updated
 
 [Service]
+User=core
+WorkingDirectory=~
 Type=oneshot
 EnvironmentFile=/home/core/certbot-env
 ExecStart=/home/core/certbot.sh

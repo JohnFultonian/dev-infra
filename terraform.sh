@@ -21,6 +21,8 @@ echo "Getting dnsimple account id..."
 DNSIMPLE_ACCOUNT=$( $VAULT_READ secret/dnsimple_account )
 echo "Getting bitbucket secret key..."
 BITBUCKET_RSA=$( $VAULT_READ secret/bitbucket_rsa )
+echo "Getting docker config"
+DOCKER_CONFIG=$( $VAULT_READ secret/docker_config )
 echo "Done! Executing terraform"
 
 $DOCKER_RUN $2  \
@@ -34,4 +36,7 @@ $DOCKER_RUN $2  \
   -var "dnsimple_account=${DNSIMPLE_ACCOUNT}" \
   -var "bitbucket_rsa=${BITBUCKET_RSA}" \
   -var "bitbucket_rsa_pub=${BITBUCKET_RSA_PUB}" \
+  -var "docker_config='${DOCKER_CONFIG}'" \
+  -var "domain=${DOMAIN}" \
+  -var "email=${EMAIL}" \
   -var "agent_token=${BUILDKITE_AGENT_TOKEN}"
