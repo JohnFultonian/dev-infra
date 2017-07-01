@@ -9,7 +9,7 @@ resource "digitalocean_droplet" "build-agent" {
   image = "coreos-stable"
   name = "build-agent"
   region = "sgp1"
-  size = "1gb"
+  size = "2gb"
   private_networking = true
   ssh_keys = [
     "${var.ssh_fingerprint}"
